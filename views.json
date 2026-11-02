@@ -1,13 +1,20 @@
 [
   {
     "name": "week",
-    "title": "This week",
-    "subtitle": "Evaluation Runs for Claude Code: what needs attention, rendered by npm run view",
+    "title": "Evaluation review desk",
+    "subtitle": "Fictional demo records. Saved results require a current evidence check before approval.",
     "sections": [
       {
-        "title": "Needs attention",
-        "note": "TODO(author): point this at the industry's attention view (overdue, stuck, quiet).",
-        "sql": "select 'replace me' as item, 'TODO(author)' as why"
+        "title": "Runs and coverage",
+        "sql": "select name,model_version,expected_cases,observed_cases,passed,failed,decision,evidence_state,review_due from run_summary order by review_due,name"
+      },
+      {
+        "title": "Actions to resolve",
+        "sql": "select run,title,owner,due,days_overdue from action_queue where status='open' order by due,id"
+      },
+      {
+        "title": "Evidence controls",
+        "sql": "select record,rule,due,status from control_checks order by status desc,record"
       }
     ]
   }

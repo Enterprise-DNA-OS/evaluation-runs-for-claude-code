@@ -1,115 +1,106 @@
-<h1 align="center">Evaluation Runs for Claude Code</h1>
+# Evaluation Runs for Claude Code
 
-<p align="center">
-  <strong>The open-source evaluation records system that is just a database and Claude Code.</strong>
-</p>
+Keep the answers, the checks and the evidence behind a release decision in your own database. A focused alternative for the saved evaluation work teams do in Weights & Biases Weave.
 
-<p align="center">
-  Created by <a href="https://www.enterprisedna.co"><strong>Enterprise DNA</strong></a>. Free and open source. Works with Claude Code, Codex, OpenCode or Cursor.
-</p>
+Built by **Enterprise DNA**. MIT licence. Works with Claude Code, Codex, OpenCode or Cursor.
 
-<!-- three-doors -->
-<table align="center">
-  <tr>
-    <td align="center"><strong>Do it yourself</strong><br/>Clone it, run it, own it. Free, MIT.<br/><a href="#quick-start">Quick start</a></td>
-    <td align="center"><strong>We customise it</strong><br/>Your fields, your rules, your Weights & Biases Weave data brought across.<br/><a href="https://enterprisedna.co/omni/book/?utm_source=github&utm_medium=readme&utm_campaign=wandb-weave">Book a call</a></td>
-    <td align="center"><strong>We run it for you</strong><br/>Installed, connected and operated inside Omni. Setup fee, then a retainer.<br/><a href="https://enterprisedna.co/omni/instead-of/wandb-weave?utm_source=github&utm_medium=readme&utm_campaign=wandb-weave">How it works</a></td>
-  </tr>
-</table>
-
-<p align="center">
-  <a href="#what-is-this">What is this</a> &bull;
-  <a href="#why-no-front-end">Why no front end</a> &bull;
-  <a href="#quick-start">Quick start</a> &bull;
-  <a href="#the-commands">Commands</a> &bull;
-  <a href="#instead-of-wandb-weave">Instead of Weights & Biases Weave</a> &bull;
-  <a href="#want-it-installed-and-run-for-you">Installed for you</a> &bull;
-  <a href="#license">License</a>
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Node-20+-339933?style=flat-square" alt="Node 20+" />
-  <img src="https://img.shields.io/badge/PostgreSQL-any-336791?style=flat-square" alt="PostgreSQL" />
-  <img src="https://img.shields.io/badge/PGlite-embedded-3ecf8e?style=flat-square" alt="PGlite" />
-  <img src="https://img.shields.io/badge/License-MIT-yellow?style=flat-square" alt="MIT License" />
-</p>
-
----
-
-## What is this
-
-Evaluation Runs for Claude Code does the job you pay Weights & Biases Weave for, as a Postgres database and a set of agent commands. There is no web front end. You open the folder in [Claude Code](https://claude.com/claude-code) (or Codex, OpenCode, Cursor: see `AGENTS.md`) and ask for what you want in plain language. It runs the right query, and it can answer questions the Weights & Biases Weave dashboard cannot.
-
-<!-- TODO(author): the annual bill. One sentence: what a 10 to 50 person business typically pays Weights & Biases Weave per year, all in, with a source. -->
-
-Want the same thing with a web front end, or built on a different stack? That is a customisation, and it is exactly what Enterprise DNA does: [book a call](https://enterprisedna.co/omni/book/?utm_source=github&utm_medium=readme&utm_campaign=wandb-weave).
-
-<!-- TODO(author): two or three sentences on what this specific product covers and who it is for. -->
-
-## Why no front end
-
-- The front end was only ever there because the database was hard to talk to. That is no longer true.
-- Your data sits in plain Postgres tables you own. Any tool can read them. No export, no lock-in.
-- No seats, no tiers, no add-ons. Read [docs/why-no-front-end.md](docs/why-no-front-end.md) for the honest trade-offs too.
+| Do it yourself | We customise it | We run it for you |
+|---|---|---|
+| Free. Install the database and commands below. | Your acceptance checks, export mapping, reports and review process. | Installed, connected and operated through Omni by Enterprise DNA. Setup fee, then a retainer. |
+| [Quick start](#quick-start) | [Get your version built](https://enterprisedna.co/omni/book/?offer=replace-software&utm_medium=github&utm_campaign=wandb-weave) | [Book a call](https://enterprisedna.co/omni/book/?offer=replace-software&utm_medium=github&utm_campaign=wandb-weave) |
 
 ## Quick start
 
-Sixty seconds, no database install (an embedded Postgres runs inside Node):
+Node 20 or newer. The demo needs no hosted database, vendor account or model service.
 
 ```bash
 git clone https://github.com/Enterprise-DNA-OS/evaluation-runs-for-claude-code.git
 cd evaluation-runs-for-claude-code
 npm install
 npm run demo
+npm run eval -- compare --baseline=Baseline --candidate=Candidate
+npm run view
+npm run docs
 ```
 
-Then open the folder in Claude Code and type a slash command. <!-- TODO(author): name the first command to try. -->
+The fictional support demo has four acceptance cases. The baseline passes all four. The candidate passes one: it changes the return window, exceeds a latency limit and omits the fallback answer. The missing answer remains in the denominator. No model was called to produce these fixtures.
 
-### Use it with your own Postgres or Supabase
+PGlite stores local records under .data/db. For shared PostgreSQL, set DATABASE_URL and run npm run migrate. Use a fresh database for the demo. The CLI is a trusted operator tool, not a sign-in service. Hosted business use needs access controls, backups and an agreed retention process.
 
-Copy `.env.example` to `.env`, set `DATABASE_URL`, then `npm run migrate`. Same commands, shared data, no per-seat fee.
+## The working week
 
-## The commands
+1. `/attention` finds incomplete runs, failed checks, overdue reviews and stale evidence.
+2. `/import` brings prepared Weave exports into a named answer set, after a dry run and source-count reconciliation.
+3. `/evaluate` saves the inputs and outcomes of exact-match, substring and valid-JSON checks, plus optional latency limits.
+4. `/compare` shows regressions against an earlier run using the same cases. `/cohorts` counts failures by business group.
+5. `/review` records a real person's decision. Approval requires a different person from the producer, evaluator and answer contributors, no failed cases and no open actions.
+6. `/weekly-review` drafts the Monday review from attention, actions and data-handling checks. `/draft-review` prepares a run's decision packet. Nothing sends or deploys.
 
-<!-- TODO(author): a table of the slash commands in .claude/commands and what each one does. -->
+There are 34 slash commands in [.claude/commands](.claude/commands), and 31 CLI verbs including help. Run `npm run eval -- help` for the arguments. Read commands support `--json`. Names match without case, ID prefixes work, and ambiguous matches list candidates and exit 1. Unknown commands and flags fail.
 
-| Command | What it does |
-|---|---|
-| `/...` | ... |
+## What it owns
 
-## Instead of Weights & Biases Weave
+Projects, versioned suites, expected answers, answer sets, imported call records, evaluation snapshots, reviews, actions and notes. Output, source records and evaluation evidence are append-only through the application. Corrections go into a new run. A changed case makes the old score stale. Comparison refuses different case definitions, and every rendered run summary labels evidence as current, stale or not evaluated.
 
-<!-- TODO(author): how to bring data across from Weights & Biases Weave; link docs/replace-wandb-weave.md -->
+The free base evaluates saved outputs. It does not call a model, stream live traces, run arbitrary scorer code, issue certifications or deploy a release. Weave has a broader tracing and evaluation platform and an existing open-source toolkit. This is a smaller operating record for teams that want their own acceptance checks and decision evidence. Enterprise DNA scopes live capture and more advanced scoring when building your version.
 
-## Architecture
+`exact` compares complete JSON values, ignoring object-key order but preserving array order and string case. `contains` checks a nonempty literal substring in a string. `valid-json` accepts a JSON object or array, or a string that parses as JSON. It does not validate a business schema or factual correctness. Missing answers, recorded exceptions and missing required latency fail. One answer per case per run keeps coverage explicit. Repeated trials need separate runs.
 
+## Bring Weave history across
+
+Export the selected call records as JSON, JSONL or CSV. Inspect the filters and columns. Each call must map to an existing case key. The example uses a user-defined attributes.case_key, not a field Weave supplies automatically. See [the switching guide](docs/replace-wandb-weave.md).
+
+```bash
+npm run eval -- add-run --suite="Support acceptance" --name="Imported answers" --model-version="your-version" --actor="Your actual name" --review-due=2026-12-01
+npm run eval -- import weave --run="Imported answers" --file=examples/weave-calls.jsonl --expected-count=4 --source-ref="Fictional four-call example" --actor="Your actual name" --dry-run
 ```
-evaluation-runs-for-claude-code/
-  CLAUDE.md                 how the operator wants this run (routing table + house rules)
-  AGENTS.md                 the same, for Codex / OpenCode / Cursor / Gemini CLI
-  .claude/commands/         the slash commands
-  scripts/                  the CLI the commands drive
-  scripts/lib/db.mjs        one adapter: DATABASE_URL (pg) or embedded PGlite
-  supabase/migrations/      plain SQL schema
-  supabase/seed.sql         demo data
-  docs/                     the thesis and the migration guide
-```
 
-## Built for coding agents
+Repeat the import without `--dry-run` after checking it. One command imports a prepared export. The importer rejects unknown cases, duplicate calls, mixed source projects, invalid timings and source-count mismatches. It writes the batch atomically, preserves the raw record, and records the file fingerprint and mapping. The same file into the same run does nothing on repetition. Source call IDs cannot be duplicated across runs.
 
-The database, CLI and command recipes work with Claude Code, Codex, OpenCode or Cursor. Ask your coding agent for a new command and have it implement and test the change against the same records.
+Keep live exports in imports/, which is ignored by git. The committed example is entirely fictional. Model inputs can contain personal information. Minimise them before export and agree who can read them and when retention needs review.
 
-## Contributing
+## Ten questions to ask
 
-Issues and pull requests are welcome. Keep the shape: plain SQL, a small CLI, a slash command per recurring job, no front end.
+These questions are answered by the shipped commands. Weave supports configurable analysis too. This list demonstrates the owned base, not an assertion that the incumbent cannot answer them.
 
-## Want it installed and run for you?
+1. Which cases passed before and now fail? `compare`
+2. Did the candidate omit any expected answers? `score`
+3. Which correct answers exceed our latency limits? `failures`
+4. Which business group contains the most failed checks? `cohorts`
+5. Which saved approvals refer to changed case definitions? `runs`
+6. What exact inputs and rules supported an earlier result? `run`
+7. Who reviewed the result and what evidence did they give? `reviews`
+8. Which unresolved actions are overdue and who owns them? `actions`
+9. Which data access or retention review dates have passed? `compliance`
+10. What needs the team lead's attention this week? `weekly-review`
 
-Enterprise DNA installs Evaluation Runs for Claude Code for your business, migrates your Weights & Biases Weave data, connects it to the rest of your tools, and runs it for you as part of **Omni**, our managed Command Center. One setup fee, then a monthly retainer.
+## Your first hour: ten things to ask for
 
-- Book a call: [enterprisedna.co/omni/book](https://enterprisedna.co/omni/book/?offer=replace-software&utm_source=github&utm_medium=readme&utm_campaign=wandb-weave)
-- Read more: [enterprisedna.co/omni/instead-of/wandb-weave](https://enterprisedna.co/omni/instead-of/wandb-weave?utm_source=github&utm_medium=readme&utm_campaign=wandb-weave)
+1. Put our name, colours and logo in brand.json.
+2. Create our project with a real owner and purpose.
+3. Set our access and retention review dates.
+4. Add a suite with its version and review date.
+5. Add the expected answers our team has agreed.
+6. Separate policy, formatting and fallback cases into business groups.
+7. Map the case identifier in our Weave export.
+8. Reconcile the call count and import an answer set.
+9. Compare the candidate with a passing baseline.
+10. Assign failures and draft a packet for a different reviewer.
 
-## License
+`/customise` adds a field or changes a rule through a new tested migration. `/new-view` adds a read-only report. The database remains the product, whichever agent you use.
 
-MIT. Copyright (c) 2026 Enterprise DNA.
+## Documents, controls and backups
+
+`npm run docs` renders evaluation decision packets and data handling reviews as branded HTML in docs-out/. `npm run view` renders views/week.html. Both use brand.json and escape record values. The reports have no action buttons. Open them locally or print them to PDF. [Why no front end](docs/why-no-front-end.md).
+
+`/compliance` checks local review dates against cited NZ privacy principles and Australian guidance. It is not a legal opinion or certification. [Rules and sources](docs/compliance.md). A typed actor name is attribution, not authentication, and a privileged database owner can bypass database controls. Human review of actual identities and external access controls remains necessary.
+
+`npm run eval -- export --file=exports/backup-2026-11-02.json` writes every domain record and saved snapshot to a new private JSON file. It refuses to overwrite. Keep original exports and database backups independently. The JSON format is documented by its table names and migration; automated restore is not included.
+
+## Validation and architecture
+
+`npm test` uses an isolated temporary database and exercises all CLI verbs, repeat migrations and seed, missing-case denominators, regressions, stale evidence, review gates, import rollback and idempotency, CSV quoting, complete export and HTML escaping. A manual workflow covers Node 20/22 on Windows and Linux plus PostgreSQL 17. Actual execution evidence is in [docs/validation.md](docs/validation.md).
+
+One CLI: scripts/evaluations.mjs. Shared scoring: scripts/lib/evaluate.mjs. Plain PostgreSQL migrations: supabase/migrations. Report declarations: views.json and documents.json. No model API dependency. [Research and candidate scores](docs/research.md).
+
+MIT. Built and optionally operated through [Omni by Enterprise DNA](https://enterprisedna.co/omni/instead-of/wandb-weave).

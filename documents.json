@@ -1,11 +1,46 @@
 [
   {
-    "name": "example",
-    "title": "TODO(author): the first document this industry must produce",
-    "for_each": "select gen_random_uuid() as id, 'Example' as name",
+    "name": "evaluation-packet",
+    "title": "Evaluation decision packet",
+    "for_each": "select id,name from runs order by name",
     "file": "name",
     "sections": [
-      { "title": "Details", "sql": "select 'replace me' as item, $1::text as record_id" }
+      {
+        "title": "Run and recorded coverage",
+        "sql": "select name,model_version,expected_cases,observed_cases,total,passed,failed,decision,evidence_state from run_summary where id=$1",
+        "layout": "record",
+        "note": "Saved evidence, not release authorisation. Ask for current results before making a decision."
+      },
+      {
+        "title": "Case outcomes",
+        "sql": "select x.case_key,x.cohort,x.passed,x.reason,x.latency_ms from run_summary s join evaluations e on e.id=s.evaluation_id cross join lateral jsonb_to_recordset(e.results) as x(case_key text,cohort text,passed boolean,reason text,latency_ms integer) where s.id=$1 order by x.case_key"
+      },
+      {
+        "title": "Decision evidence",
+        "sql": "select v.actor,v.decision,v.evidence,v.created_at from reviews v join evaluations e on e.id=v.evaluation_id where e.run_id=$1 order by v.created_at,v.id"
+      },
+      {
+        "title": "Follow-up work",
+        "sql": "select title,owner,due,status,resolution from action_queue where id in (select id from actions where run_id=$1) order by due,id"
+      }
+    ]
+  },
+  {
+    "name": "data-handling-review",
+    "title": "Data handling review",
+    "for_each": "select id,name from projects order by name",
+    "file": "name",
+    "sections": [
+      {
+        "title": "Purpose and accountability",
+        "sql": "select name,owner,purpose,access_review_due,retention_review_due from projects where id=$1",
+        "layout": "record",
+        "note": "Due dates are local review policy. Privacy law sets no universal number of days here."
+      },
+      {
+        "title": "Registered suites",
+        "sql": "select name,version,review_due from suites where project_id=$1 order by name,version"
+      }
     ]
   }
 ]

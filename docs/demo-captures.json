@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Version comparison",
+    "ask": "Which answers passed before and now fail?",
+    "command": "node scripts/evaluations.mjs compare --baseline=Baseline --candidate=Candidate",
+    "output": "  case_key        cohort      baseline  candidate  change      reason          \n  --------------  ----------  --------  ---------  ----------  ----------------\n  order-status    structured  pass      pass       unchanged   passed          \n  refund-route    policy      pass      fail       regression  latency exceeded\n  returns-window  policy      pass      fail       regression  contains failed \n  unknown-order   fallback    pass      fail       regression  missing answer"
+  },
+  {
+    "title": "Team attention",
+    "ask": "What needs the team lead’s attention?",
+    "command": "node scripts/evaluations.mjs attention",
+    "output": "  run        model       received  expected  passed  failed  attention                                                 \n  ---------  ----------  --------  --------  ------  ------  ----------------------------------------------------------\n  Candidate  support-v2  3         4         1       3       missing answers; failed checks; unreviewed; review overdue\n  Baseline   support-v1  4         4         4       0       unreviewed"
+  },
+  {
+    "title": "Failures by group",
+    "ask": "Where are the failed checks concentrated?",
+    "command": "node scripts/evaluations.mjs cohorts --run=Candidate",
+    "output": "  cohort      total  passed  failed\n  ----------  -----  ------  ------\n  fallback    1      0       1     \n  policy      2      0       2     \n  structured  1      1       0"
+  }
+]

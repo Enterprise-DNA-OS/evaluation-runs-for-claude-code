@@ -1,0 +1,12 @@
+[
+  "Which answers passed before and now fail?",
+  "Did the candidate leave any expected answers out?",
+  "Which correct answers take longer than our limit?",
+  "Which business group has the most failed checks?",
+  "Which saved decisions refer to changed expectations?",
+  "What exact answers and rules supported an earlier result?",
+  "Who reviewed this result and what evidence did they give?",
+  "Which overdue follow-ups need an owner to act?",
+  "Which data access and retention reviews are overdue?",
+  "What needs the team lead’s attention this week?"
+]

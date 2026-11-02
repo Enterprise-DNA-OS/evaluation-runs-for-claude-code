@@ -1,0 +1,138 @@
+[
+  {
+    "name": "projects",
+    "description": "Read the project owners, purpose and data-handling review dates."
+  },
+  {
+    "name": "suites",
+    "description": "Read versioned acceptance suites and their review dates."
+  },
+  {
+    "name": "cases",
+    "description": "Inspect the exact expected answers, assertions and latency limits."
+  },
+  {
+    "name": "runs",
+    "description": "Read coverage, saved outcomes, reviews and evidence freshness."
+  },
+  {
+    "name": "run",
+    "description": "Read one run with its saved evidence and notes."
+  },
+  {
+    "name": "observations",
+    "description": "Inspect recorded answers and source call references."
+  },
+  {
+    "name": "score",
+    "description": "Preview every case against the recorded answers. Missing answers fail."
+  },
+  {
+    "name": "evaluate",
+    "description": "Save the complete input snapshot and per-case outcomes under the actual evaluator name."
+  },
+  {
+    "name": "results",
+    "description": "Read current saved results. Stop when the evidence is stale."
+  },
+  {
+    "name": "compare",
+    "description": "Compare two current evaluations with identical case definitions and show each regression."
+  },
+  {
+    "name": "cohorts",
+    "description": "Count passes and failures by the business group attached to each case."
+  },
+  {
+    "name": "failures",
+    "description": "Read the failed checks, including missing answers and latency problems."
+  },
+  {
+    "name": "attention",
+    "description": "Find incomplete, failed, stale or overdue runs."
+  },
+  {
+    "name": "compliance",
+    "description": "Read data-handling and suite-review dates. These are review reminders, not legal certification."
+  },
+  {
+    "name": "reviews",
+    "description": "Read the review history tied to each saved evaluation."
+  },
+  {
+    "name": "actions",
+    "description": "Read follow-up work, owners, due dates and resolution evidence."
+  },
+  {
+    "name": "add-project",
+    "description": "Register the real owner, purpose and agreed access and retention review dates. These dates are local policy."
+  },
+  {
+    "name": "add-suite",
+    "description": "Register a named version of the acceptance suite. Resolve the project first."
+  },
+  {
+    "name": "add-case",
+    "description": "Read examples/case.json and write the agreed test case to a private staging file. Never invent the expected answer."
+  },
+  {
+    "name": "add-run",
+    "description": "Create an answer set for a stated model or prompt version and actual producer."
+  },
+  {
+    "name": "record",
+    "description": "Read examples/observation.json. Record an actual output and measured latency. Never fabricate an answer or timing."
+  },
+  {
+    "name": "review",
+    "description": "Read current results and open actions first. A real different reviewer approves only complete passing evaluations. Never invent a second identity."
+  },
+  {
+    "name": "add-action",
+    "description": "Register a concrete failure to fix, an actual owner and an agreed due date."
+  },
+  {
+    "name": "close-action",
+    "description": "Record the actual resolution evidence and operator identity. Closing work does not change old scores."
+  },
+  {
+    "name": "log",
+    "description": "Append the actual decision or observation to the run history."
+  },
+  {
+    "name": "history",
+    "description": "Read notes in order before preparing a review."
+  },
+  {
+    "name": "import",
+    "description": "Read docs/replace-wandb-weave.md. Inspect the export and explicit mapping. Get the independent source count. Dry-run, reconcile, then import. No credentials are required here."
+  },
+  {
+    "name": "export",
+    "description": "Write the full database contents to a new private JSON file. Keep source exports separately. Never overwrite an existing backup."
+  },
+  {
+    "name": "weekly-review",
+    "description": "Draft the Monday review from attention, open actions and compliance. Return the generated file in chat. Never send it."
+  },
+  {
+    "name": "draft-review",
+    "description": "Draft a decision packet from current saved results and the actual review history. Return the generated file in chat. It does not authorise a deployment."
+  },
+  {
+    "name": "customise",
+    "description": "customise"
+  },
+  {
+    "name": "new-view",
+    "description": "new-view"
+  },
+  {
+    "name": "views",
+    "description": "views"
+  },
+  {
+    "name": "documents",
+    "description": "documents"
+  }
+]

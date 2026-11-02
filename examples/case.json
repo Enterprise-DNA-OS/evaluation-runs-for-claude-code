@@ -1,0 +1,8 @@
+{
+  "case_key": "opening-hours",
+  "cohort": "policy",
+  "input": "When are you open?",
+  "expected": "Weekdays",
+  "assertion": "exact",
+  "max_latency_ms": 2000
+}
