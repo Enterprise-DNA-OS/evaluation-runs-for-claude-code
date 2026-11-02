@@ -1,3 +1,7 @@
+---
+description: "Read examples/observation.json. Record an actual output and measured latency. Never fabricate an answer or timing."
+---
+
 # record
 
 Read examples/observation.json. Record an actual output and measured latency. Never fabricate an answer or timing.

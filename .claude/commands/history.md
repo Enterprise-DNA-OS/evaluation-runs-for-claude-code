@@ -1,3 +1,7 @@
+---
+description: "Read notes in order before preparing a review."
+---
+
 # history
 
 Read notes in order before preparing a review.

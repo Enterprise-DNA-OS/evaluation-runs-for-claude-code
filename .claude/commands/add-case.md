@@ -1,3 +1,7 @@
+---
+description: "Read examples/case.json and write the agreed test case to a private staging file. Never invent the expected answer."
+---
+
 # add-case
 
 Read examples/case.json and write the agreed test case to a private staging file. Never invent the expected answer.

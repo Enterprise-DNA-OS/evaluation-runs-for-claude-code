@@ -1,3 +1,7 @@
+---
+description: "Compare two current evaluations with identical case definitions and show each regression."
+---
+
 # compare
 
 Compare two current evaluations with identical case definitions and show each regression.

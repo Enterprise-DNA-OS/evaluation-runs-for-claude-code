@@ -1,3 +1,7 @@
+---
+description: "Read current results and open actions first. A real different reviewer approves only complete passing evaluations. Never invent a second identity."
+---
+
 # review
 
 Read current results and open actions first. A real different reviewer approves only complete passing evaluations. Never invent a second identity.

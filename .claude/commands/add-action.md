@@ -1,3 +1,7 @@
+---
+description: "Register a concrete failure to fix, an actual owner and an agreed due date."
+---
+
 # add-action
 
 Register a concrete failure to fix, an actual owner and an agreed due date.

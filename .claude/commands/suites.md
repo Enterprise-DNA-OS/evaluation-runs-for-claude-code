@@ -1,3 +1,7 @@
+---
+description: "Read versioned acceptance suites and their review dates."
+---
+
 # suites
 
 Read versioned acceptance suites and their review dates.

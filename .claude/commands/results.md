@@ -1,3 +1,7 @@
+---
+description: "Read current saved results. Stop when the evidence is stale."
+---
+
 # results
 
 Read current saved results. Stop when the evidence is stale.

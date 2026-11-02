@@ -1,3 +1,7 @@
+---
+description: "Draft a decision packet from current saved results and the actual review history. Return the generated file in chat. It does not authorise a deployment."
+---
+
 # draft-review
 
 Draft a decision packet from current saved results and the actual review history. Return the generated file in chat. It does not authorise a deployment.

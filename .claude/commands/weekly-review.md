@@ -1,3 +1,7 @@
+---
+description: "Draft the Monday review from attention, open actions and compliance. Return the generated file in chat. Never send it."
+---
+
 # weekly-review
 
 Draft the Monday review from attention, open actions and compliance. Return the generated file in chat. Never send it.

@@ -1,3 +1,7 @@
+---
+description: "Save the complete input snapshot and per-case outcomes under the actual evaluator name."
+---
+
 # evaluate
 
 Save the complete input snapshot and per-case outcomes under the actual evaluator name.

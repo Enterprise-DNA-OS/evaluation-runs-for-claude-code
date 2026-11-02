@@ -1,3 +1,7 @@
+---
+description: "Write the full database contents to a new private JSON file. Keep source exports separately. Never overwrite an existing backup."
+---
+
 # export
 
 Write the full database contents to a new private JSON file. Keep source exports separately. Never overwrite an existing backup.

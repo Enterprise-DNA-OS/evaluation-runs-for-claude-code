@@ -1,3 +1,7 @@
+---
+description: "Register a named version of the acceptance suite. Resolve the project first."
+---
+
 # add-suite
 
 Register a named version of the acceptance suite. Resolve the project first.

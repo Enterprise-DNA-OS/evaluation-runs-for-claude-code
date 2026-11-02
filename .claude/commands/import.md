@@ -1,3 +1,7 @@
+---
+description: "Read docs/replace-wandb-weave.md. Inspect the export and explicit mapping. Get the independent source count. Dry-run, reconcile, then import. No credentials are required here."
+---
+
 # import
 
 Read docs/replace-wandb-weave.md. Inspect the export and explicit mapping. Get the independent source count. Dry-run, reconcile, then import. No credentials are required here.

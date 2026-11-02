@@ -1,3 +1,7 @@
+---
+description: "Record the actual resolution evidence and operator identity. Closing work does not change old scores."
+---
+
 # close-action
 
 Record the actual resolution evidence and operator identity. Closing work does not change old scores.

@@ -1,3 +1,7 @@
+---
+description: "Read the project owners, purpose and data-handling review dates."
+---
+
 # projects
 
 Read the project owners, purpose and data-handling review dates.

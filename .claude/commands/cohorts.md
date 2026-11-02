@@ -1,3 +1,7 @@
+---
+description: "Count passes and failures by the business group attached to each case."
+---
+
 # cohorts
 
 Count passes and failures by the business group attached to each case.

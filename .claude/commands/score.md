@@ -1,3 +1,7 @@
+---
+description: "Preview every case against the recorded answers. Missing answers fail."
+---
+
 # score
 
 Preview every case against the recorded answers. Missing answers fail.

@@ -1,3 +1,7 @@
+---
+description: "Read data-handling and suite-review dates. These are review reminders, not legal certification."
+---
+
 # compliance
 
 Read data-handling and suite-review dates. These are review reminders, not legal certification.

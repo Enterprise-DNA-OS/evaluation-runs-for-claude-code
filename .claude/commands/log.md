@@ -1,3 +1,7 @@
+---
+description: "Append the actual decision or observation to the run history."
+---
+
 # log
 
 Append the actual decision or observation to the run history.
