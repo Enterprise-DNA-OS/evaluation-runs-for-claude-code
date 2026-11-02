@@ -11,4 +11,6 @@
 - Demo capture: docs/demo-captures.json contains actual command stdout, not invented examples.
 - Page gate: check-page.mjs wandb-weave PASS in the Command Centre, zero brand errors.
 
-The manual GitHub workflow includes Node 20/22 on Windows and Linux and a PostgreSQL 17 job. Results are recorded below once those jobs run. No model API or customer system is part of validation.
+The manual [GitHub verification run](https://github.com/Enterprise-DNA-OS/evaluation-runs-for-claude-code/actions/runs/41542577701) passed all five jobs: Node 20 and 22 on ubuntu-latest and windows-latest, plus PostgreSQL 17. These jobs tested code commit 7b61f74. No model API or customer system is part of validation.
+
+The generated weekly report was checked in a headless browser at 1440 and 390 pixels. Neither viewport has document-level horizontal overflow; wide report sections scroll inside their own container.
