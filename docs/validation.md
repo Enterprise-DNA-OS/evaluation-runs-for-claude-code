@@ -14,3 +14,5 @@
 The manual [GitHub verification run](https://github.com/Enterprise-DNA-OS/evaluation-runs-for-claude-code/actions/runs/41542577701) passed all five jobs: Node 20 and 22 on ubuntu-latest and windows-latest, plus PostgreSQL 17. These jobs tested code commit 7b61f74. No model API or customer system is part of validation.
 
 The generated weekly report was checked in a headless browser at 1440 and 390 pixels. Neither viewport has document-level horizontal overflow; wide report sections scroll inside their own container.
+
+The Landing Pages target was rendered using the unchanged shared Astro route and components in an isolated preview. Desktop (1440px) and mobile (390px) checks found no page-level horizontal overflow or browser errors. The page returned noindex,nofollow and eight booking links carrying this target's campaign value. The rendered-page quality gate passed. The evaluation decision packet was also opened and visually inspected. This is a focused route check, not a full marketing-site build.
