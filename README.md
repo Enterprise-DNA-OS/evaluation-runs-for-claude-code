@@ -103,4 +103,4 @@ These questions are answered by the shipped commands. Weave supports configurabl
 
 One CLI: scripts/evaluations.mjs. Shared scoring: scripts/lib/evaluate.mjs. Plain PostgreSQL migrations: supabase/migrations. Report declarations: views.json and documents.json. No model API dependency. [Research and candidate scores](docs/research.md).
 
-MIT. Built and optionally operated through [Omni by Enterprise DNA](https://enterprisedna.co/omni/instead-of/wandb-weave).
+MIT. Built and optionally operated through [Omni by Enterprise DNA](https://enterprisedna.co/omni/instead-of/wandb-weave?utm_source=github&utm_medium=readme&utm_campaign=wandb-weave).
